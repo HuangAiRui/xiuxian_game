@@ -6,6 +6,9 @@ import Components from 'unplugin-vue-components/vite'
 import {ElementPlusResolver} from "unplugin-vue-components/resolvers";
 
 export default defineConfig({
+    server:{
+        port: 5713
+    },
     plugins: [
         vue(),
         AutoImport({
@@ -22,6 +25,15 @@ export default defineConfig({
     },
     build: {
         minify: 'terser',
+        rollupOptions: {
+            output: {
+                manualChunks(id) {
+                    if (id.includes('node_modules')) {
+                        return id.toString().split('node_modules/')[1].split('/')[0].toString();
+                    }
+                },
+            },
+        },
         terserOptions: {
             compress: {
                 //生产环境时移除console
