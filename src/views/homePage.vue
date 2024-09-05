@@ -2159,7 +2159,7 @@
 
     .collapse p,
     .monsterinfo-box p {
-        display: contents;
+        display: grid;
     }
 
     .description {
@@ -2204,7 +2204,7 @@
             right: 10px;
         } */
 
-        .dialog-footer-button:nth-child(2+n) {
+        .dialog-footer-button:nth-child(2n) {
             margin-top: 10px;
             width: 100%;
         }

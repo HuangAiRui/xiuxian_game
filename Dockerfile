@@ -5,8 +5,9 @@ WORKDIR /workspace
 RUN git clone https://github.com/Ray-Lee12138/Game-XiuXian.git && \
     mv ./Game-XiuXian/* ./ && \
     rm -rf ./Game-XiuXian/ && \
-    npm install -g yarn && \
-    yarn install && \
-    npm run build
+	
+RUN npm install
+
+RUN npm run build
 
 CMD ["vite"]
